@@ -46,9 +46,11 @@ The SQL database file is included in this repository for reference and setup pur
 6. Configure the database connection in the PHP project if necessary.
 7. Open the application through localhost in a web browser.
 
-# Project Status
-The main e-commerce and consultation flow has been implemented.
-The veterinary consultation chat feature is not yet implemented.
+# Attribution
 
+- The PHP source code, SQL database, queries, application logic, and project-specific functionality were developed by me.
+- The CSS/UI template and other supporting assets were obtained from third-party resources and were not originally created by me.
+- Some icons and images used in the project were sourced from Magnific.
+  
 # Author
 Devinka Intan Sagita

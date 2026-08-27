@@ -1,7 +1,7 @@
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-dark">Apotek</h6>
+<div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Data Kecamatan</h6>
                         </div>
-                                    <form class="form-inline" role="search" method="post" action="index.php?halaman=cari_apotek">
+                                    <form class="form-inline" role="search" method="post" action="index.php?halaman=cari_kecamatan">
                                     <div class="col-10">
                                     <table border="0">
                                     <tr>
@@ -19,33 +19,32 @@
                                     <thead>
                                         <tr>
                                              <th>No</th>
-                                          <th>ID Apotek</th>
-                                          <th>Nama Apotek</th>
-                                          <th>Alamat Apotek</th>
+                                          <th>ID Kecamatan</th>
+                                          <th>Nama Kecamatan</th>
                                           <th>Nama Kota</th>
+    
                                           <th>Option</th>
                                           </tr>
                                         <tbody>
                                             <?php 
-                                              $ambildata =mysqli_query($koneksi, "SELECT * FROM apotek JOIN kota ON apotek.id_kota=kota.id_kota");
+                                              $ambildata =mysqli_query($koneksi, "SELECT * FROM kecamatan JOIN kota ON kecamatan.id_kota=kota.id_kota");
                                                  $No =1 ;
                                                 while ($db= $ambildata->fetch_assoc()){
                                             ?>
                                                <tr>
                                                    <td><?php echo $No?></td>
-                                                   <td><?php echo $db['id_apotek'];?></td>
-                                                   <td><?php echo $db['nama_apotek'];?></td>
-                                                   <td><?php echo $db['alamat_apotek'];?></td>
-                                                    <td><?php echo $db['nama_kota'];?></td>
-
+                                                   <td><?php echo $db['id_kecamatan'];?></td>
+                                                   <td><?php echo $db['nama_kecamatan'];?></td>
+                                                   <td><?php echo $db['nama_kota'];?></td>
+                                                    
                                                     <td>  
-                                                        <a href ="hapus_apotek.php?id_apotek=<?php echo $db['id_apotek']?>" onclick ="return confirm ('Apakah anda yakin ingin menghapus data?')"name="hapus" class="btn btn-purple"> Hapus </a> 
-                                                        <a href ="edit_apotek.php?halaman=edit_apotek&id_apotek=<?php echo $db['id_apotek']?>" class="btn btn- btn-purple">Edit</a>  
+                                                        <a href ="hapus_kecamatan.php?id_kecamatan=<?php echo $db['id_kecamatan']?>" onclick ="return confirm ('Apakah anda yakin ingin menghapus data?')"name="hapus" class="btn btn-purple"> Hapus </a>
+                                                        <a href ="edit_kecamatan.php?halaman=edit_kecamatan&id_kecamatan=<?php echo $db['id_kecamatan']?>" class="btn btn- btn-purple">Edit</a>
                                         <?php $No++;
                                         }
                                         ?> 
                                         </tbody>
                                     </thead>
                                 </table>
-                                <a href="index.php?halaman=tambah_apotek" class = "btn btn-purple"> Tambah Data </a>
+                                <a href="index.php?halaman=tambah_kecamatan" class="btn btn-purple">Tambah Data</a>
                             </div>

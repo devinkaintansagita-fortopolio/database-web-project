@@ -1,7 +1,7 @@
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-dark">Apotek</h6>
+<div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Data Jenis Bayar Konsultasi</h6>
                         </div>
-                                    <form class="form-inline" role="search" method="post" action="index.php?halaman=cari_apotek">
+                                    <form class="form-inline" role="search" method="post" action="index.php?halaman=cari_jenis_bayar_konsul">
                                     <div class="col-10">
                                     <table border="0">
                                     <tr>
@@ -19,33 +19,34 @@
                                     <thead>
                                         <tr>
                                              <th>No</th>
-                                          <th>ID Apotek</th>
-                                          <th>Nama Apotek</th>
-                                          <th>Alamat Apotek</th>
-                                          <th>Nama Kota</th>
+                                          <th>ID Jenis Bayar Konsultasi</th>
+                                          <th>Nama Jenis Bayar Konsultasi</th>
+                                          <th>Keterangan Metode Bayar Konsultasi</th>
+                                          <th>Tujuan</th>
+    
                                           <th>Option</th>
                                           </tr>
                                         <tbody>
                                             <?php 
-                                              $ambildata =mysqli_query($koneksi, "SELECT * FROM apotek JOIN kota ON apotek.id_kota=kota.id_kota");
+                                              $ambildata =mysqli_query($koneksi, "SELECT * FROM jenis_bayar_konsul JOIN metode_bayar_konsul ON jenis_bayar_konsul.id_metode_bayar_konsul=metode_bayar_konsul.id_metode_bayar_konsul");
                                                  $No =1 ;
                                                 while ($db= $ambildata->fetch_assoc()){
                                             ?>
                                                <tr>
                                                    <td><?php echo $No?></td>
-                                                   <td><?php echo $db['id_apotek'];?></td>
-                                                   <td><?php echo $db['nama_apotek'];?></td>
-                                                   <td><?php echo $db['alamat_apotek'];?></td>
-                                                    <td><?php echo $db['nama_kota'];?></td>
-
+                                                   <td><?php echo $db['id_jenis_bayar_konsul'];?></td>
+                                                   <td><?php echo $db['ket_jenis_bayar_konsul'];?></td>
+                                                   <td><?php echo $db['ket_metode_bayar_konsul'];?></td>
+                                                   <td><?php echo $db['tujuan'];?></td>
+                                                    
                                                     <td>  
-                                                        <a href ="hapus_apotek.php?id_apotek=<?php echo $db['id_apotek']?>" onclick ="return confirm ('Apakah anda yakin ingin menghapus data?')"name="hapus" class="btn btn-purple"> Hapus </a> 
-                                                        <a href ="edit_apotek.php?halaman=edit_apotek&id_apotek=<?php echo $db['id_apotek']?>" class="btn btn- btn-purple">Edit</a>  
+                                                    <a href="hapus_jenis_bayar_konsul.php?id_jenis_bayar_konsul=<?php echo $db['id_jenis_bayar_konsul'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" name="hapus" class="btn btn-purple">Hapus</a>
+                                                        <a href ="edit_jenis_bayar_konsul.php?halaman=edit_jenis_bayar_konsul&id_jenis_bayar_konsul=<?php echo $db['id_jenis_bayar_konsul']?>" class="btn btn- btn-purple">Edit</a>
                                         <?php $No++;
                                         }
                                         ?> 
                                         </tbody>
                                     </thead>
                                 </table>
-                                <a href="index.php?halaman=tambah_apotek" class = "btn btn-purple"> Tambah Data </a>
+                                <a href="index.php?halaman=tambah_jenis_bayar_konsul" class="btn btn-purple">Tambah Data</a>
                             </div>
